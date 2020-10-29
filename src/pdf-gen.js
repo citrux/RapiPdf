@@ -110,5 +110,10 @@ export default async function createPdf(specUrl, options) {
   };
   // pdfMake.vfs = pdfFonts.pdfMake.vfs;
   pdfMake.vfs = pdfFonts;
-  pdfMake.createPdf(finalDocDef).open();
+  const pdf = pdfMake.createPdf(finalDocDef);
+  if (options.pdfFileName) {
+    pdf.download(options.pdfFileName);
+  } else {
+    pdf.open();
+  }
 }

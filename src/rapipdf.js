@@ -220,6 +220,7 @@ export default customElements.define('rapi-pdf', class RapiPdf extends HTMLEleme
     const includeExample = this.getAttribute('include-example') === 'true';
     const includeApiDetails = this.getAttribute('include-api-details') !== 'false';
     const includeApiList = this.getAttribute('include-api-list') === 'true';
+    const pdfFileName = this.getAttribute('pdf-file-name');
 
     const localize = this.localize;
     const options = {
@@ -239,6 +240,7 @@ export default customElements.define('rapi-pdf', class RapiPdf extends HTMLEleme
       includeApiDetails,
       includeApiList,
       localize,
+      pdfFileName,
     };
     const spec = this.specUrl || jsonObj;
     createPdf(spec, options);
